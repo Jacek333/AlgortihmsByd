@@ -1,9 +1,10 @@
-import java.util.Scanner;
+
 package ArraySum;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 
-public class ArraySum {
+public class arraySum {
     public static void main(String[] args) {
 
 
@@ -21,7 +22,7 @@ public class ArraySum {
 
     public static int getArraySum(ArrayList<Integer> array) {
         int result = 0;
-        for (int i = 0; i <; i++) {
+        for (int i = 0; i < 0 ; i++) {
 
             result += array.get(i);
         } return result;

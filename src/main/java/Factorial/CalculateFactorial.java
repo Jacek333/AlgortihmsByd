@@ -1,5 +1,6 @@
-import java.util.Scanner;
 package Factorial;
+
+import java.util.Scanner;
 
 public class CalculateFactorial {
 
@@ -7,14 +8,18 @@ public class CalculateFactorial {
         Scanner scanner = new Scanner(System.in);
         int n;
 
-        System.out.println("Podaj liczbe: ");
+        System.out.print("Podaj liczbe: " );
         n = scanner.nextInt();
-        System.out.println("Wartosc silni: " + calculateFactorial(n));
+        if (n < 0) {
+            System.out.println("Wartość nieprawidłowa: ");
+        } else {
+            System.out.println("Wartosc silni: " + calculateFactorial(n));
+        }
     }
+
     public static int calculateFactorial(int n) {
         if (n<=1) {
             return 1;
-
         } else {
             return n*calculateFactorial(n-1);
         }
