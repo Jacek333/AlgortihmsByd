@@ -1,5 +1,7 @@
 package Queue;
 
+import Helpers.Helper;
+
 public class Queue {
 
     private QueueElement first = null;
@@ -8,30 +10,33 @@ public class Queue {
     public void addToQueue(int value) {
 
         QueueElement item = new QueueElement(value);
-        item.setPrev(this.last);
-        this.last = item;
 
         if (this.first == null) {
             this.first = item;
-
         }
-
+        if (last != null) {
+            this.last.setNext(item);
+        }
+        this.last = item;
     }
 
-    public void removeFromQuene()
+    public int removeFromQueue()
     {
-        if (this.last != null) {
-            this.last = this.last.getPrev();
+        if (this.first != null) {
+            int temp = this.first.getValue();
+            this.first = first.getNext();
+            return temp;
         }
+        return -1;
     }
 
-    public void isEmpty()
+    public boolean isEmpty()
     {
-        if (this.last != null) {
+        if (this.last == null) {
             return true;
-
         }
-         return false;
+
+        return false;
     }
 
     public int getPickOfQueue()
@@ -39,22 +44,29 @@ public class Queue {
         if (this.first != null) {
             return this.first.getValue();
         }
+
         return -1;
     }
-    public int getLastAdded() {
+
+    public int getLastAdded()
+    {
         if (this.last != null) {
             return this.last.getValue();
         }
+
         return -1;
     }
+
     public void printQueue()
     {
-        if (this.last != null) {
-            QueueElement temp = this.last;
-            while (temp.getPrev() != null) {
-                System.out.println(temp.getValue());
-                temp = temp.getPrev();
+        if (this.first != null) {
+            QueueElement temp = this.first;
+            while(temp.getNext() != null) {
+                Helper.printInt(temp.getValue());
+                temp = temp.getNext();
             }
+            Helper.printInt(temp.getValue());
         }
+
     }
 }

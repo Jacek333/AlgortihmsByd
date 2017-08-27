@@ -1,32 +1,38 @@
 package Queue;
 
+import Helpers.Helper;
+
 public class InvokeQueue {
     public static void main(String[] args) {
-//      invokeHeap();
-    invokeQueneOnArray();
+        invokeQueue();
+//        invokeQueueOnArray();
     }
 
-    public static void invokeQuene() {
+    public static void invokeQueue() {
         Queue queue = new Queue();
+        queue.isEmpty();
         queue.addToQueue(10);
         queue.addToQueue(11);
         queue.addToQueue(5);
         queue.printQueue();
+        Helper.printString(String.valueOf(queue.isEmpty()));
+        Helper.printString(String.valueOf(queue.getPickOfQueue()));
+        Helper.printString(String.valueOf(queue.getLastAdded()));
+        Helper.printString(String.valueOf(queue.removeFromQueue()));
+        Helper.printString(String.valueOf(queue.getPickOfQueue()));
     }
-
 
     public static void invokeQueueOnArray() {
         QueueOnArray queue = new QueueOnArray(5);
-        System.out.println(String.valueOf(queue.isEmpty()));
+        Helper.printString(String.valueOf(queue.isEmpty()));
         queue.addToQueue(10);
         queue.addToQueue(11);
         queue.addToQueue(5);
-        System.out.println();
-        System.out.println(String.valueOf(queue.getLastAdded()));
-        System.out.println(String.valueOf(queue.getPickofQuene()));
-        System.out.println(String.valueOf(queue.removeFromQuene()));
-        System.out.println(String.valueOf(queue.getPickofQuene()));
-        System.out.println(String.valueOf(queue.isEmpty()));
-
+        queue.printQueue();
+        Helper.printString(String.valueOf(queue.getLastAdded()));
+        Helper.printString(String.valueOf(queue.getPickOfQueue()));
+        Helper.printString(String.valueOf(queue.removeFromQueue()));
+        Helper.printString(String.valueOf(queue.getPickOfQueue()));
+        Helper.printString(String.valueOf(queue.isEmpty()));
     }
 }
